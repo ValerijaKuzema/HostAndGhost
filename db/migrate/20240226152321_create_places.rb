@@ -6,7 +6,6 @@ class CreatePlaces < ActiveRecord::Migration[7.1]
       t.string :description
       t.integer :price
       t.references :user, null: false, foreign_key: true
-
       t.timestamps
     end
   end
