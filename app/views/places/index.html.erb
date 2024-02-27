@@ -1,0 +1,9 @@
+<h1> My beautiful places</h1>
+
+<ul>
+<% @places.each do |place|%>
+<li><%= link_to place.title, place_path(place) %></li>
+<% end %>
+</ul>
+
+<%= link_to  "Create new", new_place_path %>
