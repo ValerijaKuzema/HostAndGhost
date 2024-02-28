@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -23,7 +24,6 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
-
   end
 
   def update
