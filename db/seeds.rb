@@ -54,7 +54,11 @@ Place.create(title:"Desolate Clown Manor",
              price:14,
              user:users.sample)
 
-Booking.create()
+places = Place.all()
+
+5.times do
+  Booking.create(start: Date.yesterday(), end: Date.tomorrow(), user: users.sample, place: places.sample)
+end
 
 puts "created #{User.count} ghosts"
 puts "created #{Place.count} spooky haunts"

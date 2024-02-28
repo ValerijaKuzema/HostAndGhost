@@ -2,7 +2,8 @@
 
 <div class="container">
   <div class="cards">
-    <% @booking.each.place do |place|%>
+    <% @bookings.each do |booking|%>
+        <% place = Place.find(booking.place_id) %>
         <div class="card-trip">
           <div class="card-trip-infos">
             <div>
