@@ -31,6 +31,26 @@ h1 {
   width: 40px;
 }
 
-.nav-item a {
+.nav-item {
+  a {
   color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  padding-right: 30px;
+  }
+
+  a:hover {
+    transition: 1s ease;
+    color: $red;
+  }
+}
+
+.dropdown-menu {
+  background-color: $blue;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
 }

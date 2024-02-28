@@ -13,26 +13,28 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
+    @place.user = current_user
     if @place.save
       redirect_to place_path(@place)
     else
       render :new
     end
+  end
 
-    def edit
-      @place = Place.find(params[:id])
-    end
+  def edit
+    @place = Place.find(params[:id])
 
-    def update
-      @place.update(place_params)
-      @place = Place.find(params[:id])
-      redirect_to place_path(@place)
-    end
+  end
+
+  def update
+    @place = Place.find(params[:id])
+    @place.update(place_params)
+    redirect_to place_path(@place)
   end
 
   private
 
   def place_params
-    params.require(:place).permit(:title, :address, :description, :price)
+    params.require(:place).permit(:title, :address, :description, :price, :photo)
   end
 end

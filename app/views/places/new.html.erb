@@ -1,11 +1,13 @@
 <h1>Create a new Place🎃</h1>
-<p>Find me in app/views/places/new.html.erb</p>
 
 <%= simple_form_for @place do |f| %>
   <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Save", class: "btn btn-primary"%>
-  <%= f.submit "Delete", class: "btn btn-primary"%>
+
 <% end %>
 
-
-<%= link_to " Back to my places", places_path %>
+<%= link_to " Back to places", places_path %>
