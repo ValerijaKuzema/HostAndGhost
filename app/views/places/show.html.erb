@@ -45,21 +45,11 @@
     <div class="col-12 col-lg-4">
       <div class="container border border-3 p-4 rounded-3 my-4">
         <h2>Book this horror</h2>
-        <form action="/applications">
-        <div class="mb-2">
-          <label for="" class="form-label">Message:</label>
-          <input class="form-control" type="text">
-        </div>
-        <div class="mb-2">
-          <label for="" class="form-label">Arrival:</label>
-          <input class="form-control" type="datetime">
-        </div>
-        <div class="mb-2">
-          <label class="form-label" for="">Departure:</label>
-          <input class="form-control" type="datetime">
-        </div>
-        <input type="submit" value="Book Now" class="btn btn-danger btn-lg w-100 mt-3">
-        </form>
+          <%= simple_form_for [@place, @booking] do |f| %>
+            <%= f.input :start %>
+            <%= f.input :end %>
+            <%= f.button :submit %>
+          <% end %>
       </div>
     </div>
   </div>
