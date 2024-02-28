@@ -1,8 +1,9 @@
-<h1> My beautiful places</h1>
+<h1> My Bookings</h1>
 
 <div class="container">
   <div class="cards">
-    <% @places.each do |place|%>
+    <% @bookings.each do |booking|%>
+        <% place = Place.find(booking.place_id) %>
         <div class="card-trip">
           <div class="card-trip-infos">
             <div>
@@ -16,5 +17,3 @@
     <% end %>
   </div>
 </div>
-
-<%= link_to  "Create new", new_place_path %>
