@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @review = Review.new
+    @booking = Booking.new
   end
 
   def new
@@ -35,6 +36,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:title, :address, :description, :price)
+    params.require(:place).permit(:title, :address, :description, :price, :photo)
   end
 end
