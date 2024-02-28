@@ -1,6 +1,7 @@
 <h1>Places#show</h1>
 <%# <p><%= @place.title</p> %>
 
+<div class="container">
  <div class="container-pages">
       <div class="row">
       <div class="mb-0 col-11 col-lg-8">
@@ -50,6 +51,37 @@
     </div>
   </div>
   </div>
+
+
+<div class="list-group">
+        <% @place.reviews.each do |review| %>
+          <li class="list-group-item">
+            <small>
+              <% count = 0 %>
+              <% 5.times do %>
+                <% if review.rating > count %>
+                  <i class="fa-solid fa-star"></i>
+                <% else %>
+                  <i class="fa-regular fa-star"></i>
+                <% end %>
+                <% count += 1 %>
+              <% end %>
+            </small>
+            <p><%= review.content %></p>
+          </li>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [@place_path, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.input :content%>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to "Back to places", places_path %>
+      <%= link_to "edit", edit_place_path(params[:id]) %>
+    </div>
+  </div>
+</div>
 
 <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
 <%= link_to " edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
