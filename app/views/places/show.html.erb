@@ -1,4 +1,9 @@
 <h1>Places#show</h1>
 <p><%= @place.title %></p>
+<p><%= @place.address %></p>
+<p><%= @place.description %></p>
+<p><%= @place.price %></p>
 
-<%= link_to "Back to my places", places_path %>
+
+<%= link_to "Back to places", places_path %>
+<%= link_to " edit", edit_place_path(params[:id]) %>
