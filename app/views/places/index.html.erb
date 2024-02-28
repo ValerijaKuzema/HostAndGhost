@@ -4,6 +4,7 @@
   <div class="cards">
     <% @places.each do |place|%>
         <div class="card-trip">
+          <%= cl_image_tag(place.photo.key, width: 400, height: 300, crop: :fill) %>
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to place.title, place_path(place)  %></h2>
