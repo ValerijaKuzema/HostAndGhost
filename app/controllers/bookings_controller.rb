@@ -1,9 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_place, only: [:create]
+  before_action :set_place, only: [:create, :show]
 
   def index
     @bookings = Booking.where(user: current_user)
   end
+
+  def show; end
 
   def create
     @booking = Booking.new(booking_params)
