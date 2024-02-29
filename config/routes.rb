@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "places#index"
   resources :places do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: [:index, :show]
-  resources :reviews, only: [:create]
 end
