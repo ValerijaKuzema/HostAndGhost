@@ -1,6 +1,19 @@
 class PlacesController < ApplicationController
   def index
     @places = Place.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        places.title @@ :query
+        OR places.description @@ :query
+      SQL
+      @places = @places.where(sql_subquery, query: params[:query])
+    end
+    if params[:price].present?
+      sql_subquery = <<~SQL
+        places.price < :price
+      SQL
+      @places = @places.where(sql_subquery, price: params[:price])
+    end
   end
 
   def show

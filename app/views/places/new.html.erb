@@ -1,14 +1,18 @@
-<div class="container mt-5">
- <h2>Tell us about your place</h2>
-  <%= simple_form_for @place do |f| %>
-    <%= f.input :title %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Save", class: "btn btn-primary"%>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="containerm-4 p-3 border .rounded-2 container-look">
+    <h2 class="color-header-for-form">Tell us about your place</h2>
+      <%= simple_form_for @place do |f| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Save", class: "btn btn-primary"%>
 
-  <% end %>
+      <% end %>
 
-  <%= link_to " Back to places", places_path %>
+      <div class="m-2 text-primary"> <%= link_to " Back to places", places_path %> </div>
+    </div>
+  </div>
 </div>
