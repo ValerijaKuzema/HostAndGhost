@@ -43,7 +43,7 @@
         </div>
       </div>
         <div class= "container-pages">
-        <h3 class="mb-3 pd-0 md-0">4 Boo-tiful Ghosts | 2 Haunting Bedrooms | 3 Ghastly Beds | 1 Scary tunnel | Lovely basement </h3>
+        <h3 class="mb-3 pd-0 md-0"><%= @place.specification %> </h3>
           <p class="fs-5 pd-0 md-0"><%= @place.description %></p>
         </div>
     </div>
@@ -85,7 +85,7 @@
 
      <%= render "reviews/new", place: @place, review: @review%>
 
-   
+
     </div>
   </div>
 </div>
