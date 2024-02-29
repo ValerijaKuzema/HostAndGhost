@@ -72,11 +72,7 @@
         <% end %>
       </div>
 
-      <%= simple_form_for [@place, @review] do |f| %>
-        <%= f.input :rating, collection: 0..5 %>
-        <%= f.input :content%>
-        <%= f.submit class: 'btn btn-primary' %>
-      <% end %>
+     <%= render "reviews/new", place: @place, review: @review%>
     </div>
   </div>
 </div>
