@@ -1,5 +1,4 @@
-<h1> My beautiful places</h1>
-    <%= form_with url: places_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: places_path, method: :get, class: "d-flex container rounded" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -13,3 +12,6 @@
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
 <%= render "shared/card_container", places: @places%>
+<div class="container">
+<%= render "shared/map", markers: @markers%>
+</div>
