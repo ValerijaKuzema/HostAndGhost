@@ -12,7 +12,7 @@
               <h2><%= link_to place.title, place_path(place)  %></h2>
               <p><%= place.description %></p>
             </div>
-            <h2 class="card-trip-pricing">Šç<%= place.price %></h2>
+            <h2 class="card-trip-pricing">Šç <%= place.price %></h2>
             <% if params[:controller]=="bookings" %>
               <%= link_to "Cancel",
                   bookings_path(place.bookings.where(user_id: current_user).first.id),
