@@ -2,7 +2,11 @@
   padding: 5px;
   margin: 10px;
   font-size: 34px;
-
-
 }
 
+#sticky-form-container {
+  position: sticky;
+  top: 20px;
+  background-color: white;
+  z-index: 1000;
+}
