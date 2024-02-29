@@ -12,13 +12,13 @@
               <h2><%= link_to place.title, place_path(place)  %></h2>
               <p><%= place.description %></p>
             </div>
+            <h2 class="card-trip-pricing">Šç<%= place.price %></h2>
             <% if params[:controller]=="bookings" %>
               <%= link_to "Cancel",
                   bookings_path(place.bookings.where(user_id: current_user).first.id),
                   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                   class: "btn btn-flat btn-sm" %>
             <% end %>
-            <h2 class="card-trip-pricing">€<%= place.price %></h2>
             <img src="https://i.pinimg.com/564x/f5/c8/ed/f5c8eded4d6174ebcf6ed3de287b983c.jpg" class="card-trip-user avatar-bordered" />
           </div>
         </div>
