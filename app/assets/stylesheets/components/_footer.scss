@@ -13,7 +13,7 @@
   font-family: $headers-font;
   font-weight: lighter;
   font-size: 15px;
-  margin-top: 25px;
+  margin-top: 25px;       
 }
 
 .footer-links{
@@ -29,3 +29,9 @@
 .footer-links a:hover {
   opacity: 0.15;
 }
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+ }
