@@ -14,6 +14,13 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
           </div>
           <div class="carousel-inner">
+          <% if @place.photos.attached? %>
+            <% @place.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
+              </div>
+            <% end %>
+          <% else %>
             <div class="carousel-item active">
                 <img src="https://hips.hearstapps.com/hmg-prod/images/most-haunted-places-in-america-1563377250.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*" class="d-block w-100 rounded-3 mb-3" alt="...z§">
             </div>
@@ -23,6 +30,7 @@
             <div class="carousel-item">
                 <img src="https://s1.at.atcdn.net/wp-content/uploads/2023/09/HEROMushroomTunnel.jpg" class="d-block w-100 rounded-3 mb-3" alt="...">
             </div>
+            <% end %>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,42 +48,47 @@
         </div>
     </div>
     <div class="col-12 col-lg-4">
-      <div class="container border border-3 p-4 rounded-3 my-4">
+    <div id="sticky-form-container">
+      <div class="container border border-3 p-4 rounded-3 my-4" >
         <h2>Book this horror</h2>
           <%= simple_form_for [@place, @booking] do |f| %>
             <%= f.input :start %>
             <%= f.input :end %>
-            <%= f.button :submit %>
+            <%= f.submit class: 'btn btn-primary mb-3' %>
           <% end %>
       </div>
     </div>
   </div>
   </div>
 
-
-<div class="list-group">
-        <% @place.reviews.each do |review| %>
-          <li class="list-group-item">
-            <small>
-              <% count = 0 %>
-              <% 5.times do %>
-                <% if review.rating > count %>
-                  <i class="fa-solid fa-star"></i>
-                <% else %>
-                  <i class="fa-regular fa-star"></i>
+<div class="container m-4 p-3 border .rounded-2 container-look">
+  <div class="col-12 col-lg-6">
+    <div class="list-group">
+          <% @place.reviews.each do |review| %>
+            <li class="list-group-item">
+              <small>
+                <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fa-solid fa-star"></i>
+                  <% else %>
+                    <i class="fa-regular fa-star"></i>
+                  <% end %>
+                  <% count += 1 %>
                 <% end %>
-                <% count += 1 %>
-              <% end %>
-            </small>
-            <p><%= review.content %></p>
-          </li>
-        <% end %>
-      </div>
+              </small>
+              <p><%= review.content %></p>
+            </li>
+          <% end %>
+        </div>
+
 
      <%= render "reviews/new", place: @place, review: @review%>
+
+   
     </div>
   </div>
 </div>
 
 <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
-<%= link_to " edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
+<%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>

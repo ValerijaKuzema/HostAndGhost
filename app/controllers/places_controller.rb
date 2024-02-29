@@ -1,6 +1,12 @@
 class PlacesController < ApplicationController
   def index
     @places = Place.all
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
     if params[:query].present?
       sql_subquery = <<~SQL
         places.title @@ :query
@@ -49,6 +55,6 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:title, :address, :description, :price, :photo)
+    params.require(:place).permit(:title, :address, :description, :price, photos: [])
   end
 end
