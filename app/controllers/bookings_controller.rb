@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_place, only: [:create, :show]
+  before_action :authenticate_user!
 
   def index
     @bookings = Booking.where(user: current_user)
@@ -11,7 +12,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.place = @place
     @booking.user = current_user
-    if @booking.save!
+    if Booking.exists?(user_id: current_user.id)
+      redirect_to place_path(@place), alert: "You've already booked this haunt"
+    elsif @booking.save!
       redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
