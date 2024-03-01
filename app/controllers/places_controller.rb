@@ -4,7 +4,8 @@ class PlacesController < ApplicationController
     @markers = @places.geocoded.map do |place|
       {
         lat: place.latitude,
-        lng: place.longitude
+        lng: place.longitude,
+        marker_html: render_to_string(partial: "marker")
       }
     end
     if params[:query].present?
