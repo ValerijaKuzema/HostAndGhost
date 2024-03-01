@@ -6,12 +6,12 @@ class ReviewsController < ApplicationController
       @review = Review.new(review_params)
       @review.user = current_user
       @review.place = @place
-    if @review.save
-        redirect_to place_path(@place) , notice: "You"
-
+      if @review.save
+          redirect_to place_path(@place)
+      end
+    else
+      redirect_to place_path(@place), alert: "You haven't stayed here yet"
     end
-  else
-  end
   end
 
   private
