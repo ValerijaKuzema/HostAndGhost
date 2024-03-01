@@ -1,8 +1,7 @@
-<h1>Places#show</h1>
 <%# <p><%= @place.title</p> %>
 
 <div class="container">
- <div class="container-pages">
+  <div class="container-pages">
       <div class="row">
       <div class="mb-0 col-11 col-lg-8">
         <div class="container-pages">
@@ -49,7 +48,7 @@
     </div>
     <div class="col-12 col-lg-4">
     <div id="sticky-form-container">
-      <div class="container border border-3 p-4 rounded-3 my-4" >
+      <div class="container border border-3 rounded-3 booking-card" >
         <h2>Book this horror</h2>
           <%= simple_form_for [@place, @booking] do |f| %>
             <%= f.input :start %>
@@ -61,7 +60,7 @@
   </div>
   </div>
 
-<div class="container m-4 p-3 border .rounded-2 container-look">
+<div class="container m-4 p-3 border rounded-2 container-look">
   <div class="col-12 col-lg-6">
     <div class="list-group">
           <% @place.reviews.each do |review| %>
@@ -80,15 +79,17 @@
               <p><%= review.content %></p>
             </li>
           <% end %>
-        </div>
+    </div>
 
 
-     <%= render "reviews/new", place: @place, review: @review%>
-
+    <%= render "reviews/new", place: @place, review: @review%>
 
     </div>
   </div>
 </div>
 
-<%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
-<%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
+      <div class="button-space-showpage">
+        <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
+        <%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
+      </div>
+  </div>
