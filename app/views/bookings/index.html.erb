@@ -29,9 +29,9 @@
             <% else %>
               <img src=<%= @default_photos[@photo_index]%>>
             <% end %>
-            <div class="card-trip-infos">
+            <div class="card-trip-infos-history">
               <div>
-                <h2><%= link_to place.title, place_path(place)  %></h2>
+                <h2><%= link_to place.title, place_path(place), class: "text-decoration-header-cards" %></h2>
                 <p><%= place.description %></p>
               </div>
               <div class="booking dates">
@@ -39,11 +39,11 @@
                 <p>From: <%= booking.start%></p>
                 <p>Until: <%= booking.end %></p>
               </div>
-              <h2 class="card-trip-pricing">Šç <%= place.price %></h2>
+              <h2 class="card-trip-pricing-history">Šç <%= place.price %></h2>
             </div>
             <%= link_to "Cancel Booking",
                     booking_path(booking.id),
-                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
           </div>
       <% end %>
     </div>

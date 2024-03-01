@@ -12,6 +12,10 @@
     border-radius: 5px;
   }
 
+.card-trip-history:hover {
+  background: rgb(213, 210, 210);
+}
+
   .card-trip-history > img {
     height: 150px;
     width: 100%;
@@ -31,17 +35,17 @@
     margin: 0;
   }
 
-  .card-trip-history .card-trip-infos {
+  .card-trip-infos-history {
     padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    position: relative;
   }
 
-  .card-trip-infos-history .card-trip-user {
-    position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
-  }
+.card-trip-pricing-history {
+  text-align: right;
+}
+
+.button-booking-history-styling {
+  background-color: $red;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
+}

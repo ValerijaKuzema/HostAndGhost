@@ -11,6 +11,12 @@
   border-radius: 10px;
 }
 
+.card-trip:hover {
+  border-width: 2px 1px px 1px;
+  border-color: rgb(150, 147, 147);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 .card-trip > img {
   height: 150px;
   width: 100%;
@@ -30,13 +36,13 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  flex-direction: column;
 }
 
 .card-trip-infos .card-trip-user {
@@ -44,4 +50,8 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.text-decoration-header-cards {
+  text-decoration: none;
 }
