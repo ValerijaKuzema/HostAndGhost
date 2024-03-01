@@ -14,8 +14,11 @@
           </div>
           <div class="carousel-inner">
           <% if @place.photos.attached? %>
-            <% @place.photos.each do |photo| %>
               <div class="carousel-item active">
+                <%= cl_image_tag(@place.photos.first.key, class: "image-slides") %>
+              </div>
+            <% @place.photos.each do |photo| %>
+              <div class="carousel-item">
                 <%= cl_image_tag(photo.key, crop: :fill, class: "image-slides") %>
               </div>
             <% end %>
