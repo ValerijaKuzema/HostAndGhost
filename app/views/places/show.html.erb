@@ -16,7 +16,7 @@
           <% if @place.photos.attached? %>
             <% @place.photos.each do |photo| %>
               <div class="carousel-item active">
-                <%= cl_image_tag(photo.key, width: 400, height: 300, crop: :fill) %>
+                <%= cl_image_tag(photo.key, crop: :fill) %>
               </div>
             <% end %>
           <% else %>
@@ -88,8 +88,10 @@
   </div>
 </div>
 
+
       <div class="button-space-showpage">
         <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
         <%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
       </div>
   </div>
+

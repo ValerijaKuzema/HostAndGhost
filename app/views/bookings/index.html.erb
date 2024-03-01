@@ -1,14 +1,36 @@
+<div class="container-bookings">
+<h2> My Bookings</h2>
+</div>
+
+<% @default_photos = ["https://s26162.pcdn.co/wp-content/uploads/2020/03/house.jpg",
+                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzL1dUsJO4DASP8Y4T2gFikQhqqTSgmYbEfQ&usqp=CAU",
+                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf0vemHRFxE7GnH1XVNEhiGWptJDiRVAOMvA&usqp=CAU",
+                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHYKJ7OHAL_zOuCSKfMA8JMvDHRzkwT4JWRg&usqp=CAU",
+                     "https://www.verywellmind.com/thmb/IHvivNNhEEy8YBo1QL_9ahVE7d4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/low-angle-view-of-building-against-cloudy-sky-750507801-5bc50e0b46e0fb0058c9ef64.jpg",
+                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbArp0UxFMN_BWymGrGxSoAWzBoR6VzVmZTQ&usqp=CAU",
+                     "https://s1.at.atcdn.net/wp-content/uploads/2023/09/HEROMushroomTunnel.jpg",
+                     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbArp0UxFMN_BWymGrGxSoAWzBoR6VzVmZTQ&usqp=CAU",
+                     "https://s1.at.atcdn.net/wp-content/uploads/2023/09/HEROMushroomTunnel.jpg",
+                     "https://www.psdstack.com/wp-content/uploads/2015/10/Step-020a.jpg",
+                     "https://i.insider.com/616da9cb41af0d00193f1b33?width=700"] %>
+<% @photo_index = -1%>
+
 <div class="container">
   <h2 class="color-header-for-form m-3"> My Bookings</h2>
 
   <div class="cards">
     <% @bookings.each do |booking|%>
+      <% if @photo_index < @default_photos.length() -1 %>
+        <% @photo_index += 1  %>
+      <% else %>
+        <% @photo_index = 0 %>
+      <% end %>
       <% place = booking.place %>
         <div class="card-trip-history">
         <% if place.photos.attached? %>
             <%= cl_image_tag(place.photos.first.key, width: 400, height: 300, crop: :fill) %>
           <% else %>
-            <img src= "https://imagelocations-laravel.s3.us-west-1.amazonaws.com/media/261386/conversions/desktop-webp-medium.webp">
+            <img src=<%= @default_photos[@photo_index]%>>
           <% end %>
           <div class="card-trip-infos">
             <div>
