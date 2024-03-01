@@ -17,11 +17,12 @@
               <div class="carousel-item active">
                 <%= cl_image_tag(@place.photos.first.key, class: "image-slides") %>
               </div>
-            <% @place.photos.each do |photo| %>
               <div class="carousel-item">
-                <%= cl_image_tag(photo.key, crop: :fill, class: "image-slides") %>
+                <%= cl_image_tag(@place.photos[1].key, class: "image-slides") %>
               </div>
-            <% end %>
+              <div class="carousel-item">
+                <%= cl_image_tag(@place.photos[2].key, class: "image-slides") %>
+              </div>
           <% else %>
             <div class="carousel-item active">
                 <img src="https://hips.hearstapps.com/hmg-prod/images/most-haunted-places-in-america-1563377250.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*" class="d-block w-100 rounded-3 mb-3" alt="...z§">
