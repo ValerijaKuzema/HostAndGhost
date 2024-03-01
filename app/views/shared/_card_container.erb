@@ -26,7 +26,7 @@
         <% end %>
           <div class="card-trip-infos">
             <div>
-              <h2><%= link_to place.title, place_path(place)  %></h2>
+              <h2><%= link_to place.title, place_path(place), class: "text-decoration-header-cards"  %></h2>
               <p><%= place.description %></p>
             </div>
             <h2 class="card-trip-pricing">Šç <%= place.price %></h2>
@@ -40,5 +40,6 @@
           </div>
         </div>
     <% end %>
+
   </div>
 </div>
