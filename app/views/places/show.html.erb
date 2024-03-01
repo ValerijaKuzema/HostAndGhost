@@ -81,6 +81,7 @@
           <% end %>
     </div>
 
+
 <div data-controller="toggle">
   <button class="btn btn-primary mt-4" data-action="click->toggle#fire"> Add Reviews
   </button>
@@ -93,8 +94,6 @@
     </div>
   </div>
 </div>
-
-
       <div class="button-space-showpage">
         <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
         <%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
