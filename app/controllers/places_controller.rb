@@ -5,7 +5,8 @@ class PlacesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker"),
+        info_window_html: render_to_string(partial: "info_window", locals: {place: place})
       }
     end
     if params[:query].present?
