@@ -14,11 +14,15 @@
           </div>
           <div class="carousel-inner">
           <% if @place.photos.attached? %>
-            <% @place.photos.each do |photo| %>
               <div class="carousel-item active">
-                <%= cl_image_tag(photo.key, crop: :fill) %>
+                <%= cl_image_tag(@place.photos.first.key, class: "image-slides") %>
               </div>
-            <% end %>
+              <div class="carousel-item">
+                <%= cl_image_tag(@place.photos[1].key, class: "image-slides") %>
+              </div>
+              <div class="carousel-item">
+                <%= cl_image_tag(@place.photos[2].key, class: "image-slides") %>
+              </div>
           <% else %>
             <div class="carousel-item active">
                 <img src="https://hips.hearstapps.com/hmg-prod/images/most-haunted-places-in-america-1563377250.jpg?crop=1xw:0.84375xh;center,top&resize=1200:*" class="d-block w-100 rounded-3 mb-3" alt="...z§">
@@ -82,16 +86,20 @@
     </div>
 
 
+<div data-controller="toggle">
+  <button class="btn btn-primary mt-4" data-action="click->toggle#fire"> Add Reviews
+  </button>
+    <div class="mt-3 d-none" data-toggle-target="toggleableElement">
     <%= render "reviews/new", place: @place, review: @review%>
+    </div>
+</div>
+
 
     </div>
   </div>
 </div>
-
-
       <div class="button-space-showpage">
         <%= link_to "Back to places", places_path, class: "btn btn-danger mb-3" %>
         <%= link_to "edit", edit_place_path(params[:id]), class: "btn btn-danger mb-3" %>
       </div>
   </div>
-

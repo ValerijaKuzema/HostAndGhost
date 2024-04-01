@@ -12,9 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.place = @place
     @booking.user = current_user
-    if Booking.exists?(user_id: current_user.id)
-      redirect_to place_path(@place), alert: "You've already booked this haunt"
-    elsif @booking.save!
+    if @booking.save!
       redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity

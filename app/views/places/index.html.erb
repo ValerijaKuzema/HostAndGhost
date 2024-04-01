@@ -1,15 +1,15 @@
-    <%= form_with url: places_path, method: :get, class: "d-flex container rounded" do %>
+    <%= form_with url: places_path, method: :get, class: "d-flex container" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control border border-dark rounded-edges-search",
             placeholder: "Type a keyword"
         %>
       <%= text_field_tag :price,
             params[:price],
-            class: "form-control",
+            class: "form-control border border-dark ",
             placeholder: "Search by price"
         %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary rounded-edged-btn-search" %>
     <% end %>
 <%= render "shared/card_container", places: @places%>
 <div class="container">
