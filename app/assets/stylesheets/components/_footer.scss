@@ -6,14 +6,13 @@
   height: 80px;
   padding: 0px 50px;
   color: $red;
-
 }
 
 .copyright {
   font-family: $headers-font;
   font-weight: lighter;
   font-size: 15px;
-  margin-top: 25px;       
+  margin-top: 25px;
 }
 
 .footer-links{
@@ -34,4 +33,4 @@
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
- }
+}
